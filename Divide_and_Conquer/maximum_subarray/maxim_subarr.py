@@ -6,7 +6,7 @@
 # Step 4: Run and Document
 import math
 def find_max_crossing_subarray(A:list, low:int, mid:int, high:int):
-    left_sum: int = 0
+    left_sum: int = -100000
     max_left: int = mid
     suml: int = 0
     i:int = mid
@@ -16,7 +16,7 @@ def find_max_crossing_subarray(A:list, low:int, mid:int, high:int):
             left_sum = suml
             max_left = i
         i -= 1
-    right_sum:int = 0
+    right_sum:int = -100000
     max_right:int = mid+1
     sum:int = 0
     j:int = mid+1
