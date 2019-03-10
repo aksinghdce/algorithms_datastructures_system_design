@@ -6,7 +6,7 @@
 import math
 def find_max_crossing_subarray(A:list, low:int, mid:int, high:int):
     left_sum: int = -1000000
-    max_left: int = -1
+    max_left: int = mid
     suml: int = 0
     i:int
     for i in range(mid, low - 1, -1):
@@ -33,20 +33,17 @@ def find_maximum_subarray(A:list, low:int, high:int):
     left_high:int
     left_sum:int
     left_low,left_high,left_sum = find_maximum_subarray(A, low, mid)
-    if left_low == low and left_high == mid:
-        print("left_max", left_low, left_high, left_sum)
+    print("left_max", left_low, left_high, left_sum)
     right_low:int
     right_high:int
     right_sum:int
     right_low, right_high, right_sum = find_maximum_subarray(A, mid+1, high)
-    if right_low == (mid+1) and right_high == high:
-        print("right_max", right_low, right_high, right_sum)
+    print("right_max", right_low, right_high, right_sum)
     mid_low:int
     mid_high:int
     mid_sum:int
     mid_low, mid_high, mid_sum = find_max_crossing_subarray(A, low, mid, high)
-    if mid_low == low and mid_high == high:
-        print("cross_max", mid_low, mid_high, mid_sum)
+    print("cross_max", mid_low, mid_high, mid_sum)
     if left_sum>= right_sum and left_sum >= mid_sum:
         return (left_low, left_high, left_sum)
     elif right_sum>=left_sum and right_sum>=mid_sum:
