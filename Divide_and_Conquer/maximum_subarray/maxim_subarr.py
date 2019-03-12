@@ -53,5 +53,6 @@ def find_maximum_subarray(A:list, low:int, high:int):
 if __name__ == '__main__':
     #l, r, s = find_maximum_subarray([13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7], 0, 15)
     #l, r, s = find_maximum_subarray([-2, -3, 4, -1, -2, 1, 5, -3], 0, 7)
-    l, r, s = find_maximum_subarray([2, 5, 1, 7, -21, 30], 0, 5)
+    #l, r, s = find_maximum_subarray([2, 5, 1, 7, -21, 30], 0, 5)
+    l, r, s = find_maximum_subarray([-2, -5, -1, -7, -21, -30], 0, 5)
     print("Left_index:",l,"Right_index:",r,"Sum:",s)
