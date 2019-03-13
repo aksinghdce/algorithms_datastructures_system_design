@@ -30,7 +30,7 @@ def find_max_crossing_subarray(A:list, low:int, mid:int, high:int):
     return (max_left, max_right, left_sum+right_sum)
 
 def find_maximum_subarray(A:list, low:int, high:int):
-    if len(A) < 70:
+    if len(A) < 80:
         return nonrec(A, low, high)
     if low == high:
         return (low, high, A[low])
