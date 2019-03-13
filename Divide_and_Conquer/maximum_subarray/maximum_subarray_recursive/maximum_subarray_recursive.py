@@ -5,6 +5,7 @@
 # Step 3: Code the program
 # Step 4: Run and Document
 import math
+from maximum_subarray.maximum_subarray_nonrecursive.maximum_subarray_nonrecursive import find_maximum_subarray as nonrec
 def find_max_crossing_subarray(A:list, low:int, mid:int, high:int):
     left_sum: int = -100000
     max_left: int = mid
@@ -29,6 +30,8 @@ def find_max_crossing_subarray(A:list, low:int, mid:int, high:int):
     return (max_left, max_right, left_sum+right_sum)
 
 def find_maximum_subarray(A:list, low:int, high:int):
+    if len(A) < 70:
+        return nonrec(A, low, high)
     if low == high:
         return (low, high, A[low])
     mid:int = math.floor((low + high)/2)
