@@ -19,35 +19,38 @@ def maximum_subarray_linear(A:list):
         if A[i] >= S:
             l = i
             m = i
+            S=A[i]
         #case2: the current elements is contiguous with the current max_subarray
         elif (m == i):
             #extended sum
             _eS_:int = S + A[i]
             #case2.1: check whether new element extends the max subarray
-            if (_eS_ > S):
-                m = i
-            # create index into the current maximum subarray
             k = l
-            _cS_:int
-            k += 1
+            _cS_:int = _eS_
             while k <= i:
-                _cS_ = _eS_ - A[k]
                 if _cS_ > S:
+                    S = _cS_
                     l = k
+                    m = i
+                _cS_ = _cS_ - A[k]
+                k += 1
         elif m < i:#this means maximum subarray can be anywhere in between 1 and i
             p = i# index into subarray A[0, i]
-            sum:int = 0
             while p >= 0:
-                sum += A[p]
-                if sum>S:
-                    l = p
-                    m = i
-                    S=sum
+                sum:int = A[p]
+                q:int = p - 1
+                while q>=0:
+                    sum += A[q]
+                    if sum>S:
+                        m = p
+                        l = q
+                        S=sum
+                    q -= 1
                 p -= 1
         i += 1
         MSSSF = (l, m, S)
     print(MSSSF)
 if __name__ == '__main__':
-    #maximum_subarray_linear([-2, -5, -1, -7, -21, -30])
+    maximum_subarray_linear([-2, -5, -1, -7, -21, -30])
     maximum_subarray_linear([-2, -3, 4, -1, -2, 1, 5, -3])
-    #maximum_subarray_linear([13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7])
+    maximum_subarray_linear([13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7])
