@@ -1,0 +1,53 @@
+#!python
+'''
+Algorithm:
+    Step 1: initialize li=0, ui = 0, sum_j = 0, nli = 0, nui = 0, sum_k = 0
+    Step 2: iterate from the beginning of the array by taking k from 1 to n and update nli, nui and sum_k
+        Step 3: if sum_k > sum_j, then update li, ui and sum_j
+'''
+def maximum_subarray_linear(A:list):
+    MSSSF = (0,0,0)
+    i:int = 0
+    while i < len(A):
+        l:int = MSSSF[0] #lower_limit_max_sub_arr
+        m:int = MSSSF[1] #upper_limit_max_sub_arr
+        S:int = MSSSF[2] #sum_max_sub_arr
+        j:int = l #initial condition i=0, j=0
+        assert l <= i
+        assert m <= i
+        #case1 : the current element by itself is greater than the running sum_max_subarray
+        if A[i] >= S:
+            l = i
+            m = i
+        #case2: the current elements is contiguous with the current max_subarray
+        elif (m == i):
+            #extended sum
+            _eS_:int = S + A[i]
+            #case2.1: check whether new element extends the max subarray
+            if (_eS_ > S):
+                m = i
+            # create index into the current maximum subarray
+            k = l
+            _cS_:int
+            k += 1
+            while k <= i:
+                _cS_ = _eS_ - A[k]
+                if _cS_ > S:
+                    l = k
+        elif m < i:#this means maximum subarray can be anywhere in between 1 and i
+            p = i# index into subarray A[0, i]
+            sum:int = 0
+            while p >= 0:
+                sum += A[p]
+                if sum>S:
+                    l = p
+                    m = i
+                    S=sum
+                p -= 1
+        i += 1
+        MSSSF = (l, m, S)
+    print(MSSSF)
+if __name__ == '__main__':
+    #maximum_subarray_linear([-2, -5, -1, -7, -21, -30])
+    maximum_subarray_linear([-2, -3, 4, -1, -2, 1, 5, -3])
+    #maximum_subarray_linear([13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7])
