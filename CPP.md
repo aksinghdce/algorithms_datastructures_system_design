@@ -44,6 +44,8 @@ int main() {
 ```
 #include <iostream>
 #include <vector>
+#include <cassert>
+
 using namespace std;
 
 class Superset {
@@ -87,8 +89,11 @@ public:
 int main() {
     vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8};
     Superset s = Superset(v);
-    s.get_supersets();
+    vector<vector<int>> supersets = s.get_supersets();
     cout << "Superset:" << s;
+    short size_s = supersets.size();
+    short v_size = v.size();
+    assert((1<<v_size) == size_s);
     return 0;
 }
 ```
