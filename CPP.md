@@ -41,8 +41,8 @@ int main() {
 
 # Create powerset of a vector<int>
     
-    ```
-    #include <iostream>
+```
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -91,10 +91,10 @@ int main() {
     cout << "Superset:" << s;
     return 0;
 }
-    ```
+```
     
-    Questions in my mind: Does vector<int>::push_back(int x) pushes a copy of x in the vector?
+Question: Does vector<int>::push_back(int x) pushes a copy of x in the vector?
     
-    Answer: vector<T>.push_back(T& x) and vector<T>.push_back(T&& x) are two variants of push_back. The first one is copying x into the vector push_back is called on and second one is moving x. For moving the syntax is V.push_back(std::move(x));
+Answer: vector<T>.push_back(T& x) and vector<T>.push_back(T&& x) are two variants of push_back. The first one is copying x into the vector push_back is called on and second one is moving x. For moving the syntax is V.push_back(std::move(x));
     
     
