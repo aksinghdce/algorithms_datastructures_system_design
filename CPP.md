@@ -38,3 +38,63 @@ int main() {
     return 0;
 }
 ```
+
+# Create powerset of a vector<int>
+    
+    ```
+    #include <iostream>
+#include <vector>
+using namespace std;
+
+class Superset {
+private:
+    vector<vector<int>> S;
+    vector<int> init;
+    void generate_set(vector<int> &v, int index) {
+        if(index == init.size()){
+            S.push_back(v);
+            return;
+        }
+        else {
+            v.push_back(init[index]);
+            generate_set(v, index+1);
+            v.pop_back();
+            generate_set(v, index+1);
+        }
+    }
+public:
+    explicit Superset(const vector<int>& in) {
+        if(! in.empty()) {
+            init = in;
+        }
+    }
+    vector<vector<int>> get_supersets() {
+        vector<int> v;
+        generate_set(v, 0);
+        return S;
+    }
+    friend ostream& operator<<(ostream &o, Superset& sup) {
+        for(auto & i: sup.S) {
+           for(auto & ii:i) {
+               o << ii;
+           }
+           o << endl;
+        }
+        return o;
+    }
+};
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8};
+    Superset s = Superset(v);
+    s.get_supersets();
+    cout << "Superset:" << s;
+    return 0;
+}
+    ```
+    
+    Questions in my mind: Does vector<int>::push_back(int x) pushes a copy of x in the vector?
+    
+    Answer: vector<T>.push_back(T& x) and vector<T>.push_back(T&& x) are two variants of push_back. The first one is copying x into the vector push_back is called on and second one is moving x. For moving the syntax is V.push_back(std::move(x));
+    
+    
