@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/aksin/Documents/UBCReadingMaterials/1.AfterFinalTerm/Job_Search/Algorithms.DataStructures/C++/DynamicProgramming/powerset.cpp
+iostream
+-
+vector
+-
+set
+-
+
