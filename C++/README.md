@@ -1,4 +1,4 @@
-# C++ On JetBrains CLion
+# Getting Started: C++ On JetBrains CLion
 
 ```
 #include <iostream>
@@ -39,7 +39,7 @@ int main() {
 }
 ```
 
-# Create powerset of a vector<int>
+# [LLVM C++17 with Docker](https://github.com/aksinghdce/Clang-in-Docker) : Create powerset of a vector<int>
     
 ```
 #include <iostream>
@@ -205,6 +205,8 @@ int main() {
 
 ```
 
+# Notes : Memory-Leak-Free code by Default
+
 Here I learnt that in order to iterate over a linked list we need to use plain old pointer. This is because unique_ptr, shared_ptr and weak_ptr take ownership of the pointed-to object.
 
 I explored the question on [reddit](https://www.reddit.com/r/cpp/comments/bwg2we/which_of_these_c17_pointers_should_i_use_for/) and found out that the "correct way to deal with this is to create an iterator type that doesn't own the data structure". So, to find out how to implement an iterator type so that it doesn't own the data structure I need to dig deeper.
@@ -226,4 +228,9 @@ How to make a [doubly-linked list](https://youtu.be/JfmTagWcqoE?t=1470)
 Interesting code about [Factory + Cache](https://youtu.be/JfmTagWcqoE?t=2035)
 
 Need to re-watch this video and begin writing amazing C++ code. And, apparently [writing code by using STL](https://youtu.be/JfmTagWcqoE?t=3134) is considered best practice.
+
+# Parallel Programming
+
+About [Cpp-Taskflow library](https://github.com/aksinghdce/Clang-in-Docker)
+
 
