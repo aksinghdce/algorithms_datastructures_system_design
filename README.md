@@ -6,6 +6,8 @@ A collection of Resources and chronological development of internal wiki is bein
 
 [Hands-On With C++](https://github.com/aksinghdce/algorithms_datastructures_system_design/tree/master/C%2B%2B)
 
+[Static Analysis tool in C++ Like Soot is in Java = LLVM phasar](https://phasar.org/)
+
 [LLVM C++ Programming Environment and Code](https://github.com/aksinghdce/Clang-in-Docker)
 
 [CLRS Solutions](https://walkccc.github.io/CLRS/Chap13/13.1/)
